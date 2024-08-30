@@ -16,9 +16,9 @@ prompt = PromptTemplate(
     ]
 )
 
-OPENAI_API_KEY = 'YOUR_API_KEY'
+OPENAI_API_KEY = ''
  
-llm = ChatOpenAI(model="gpt-4o-mini", api_key=OPENAI_API_KEY)
+llm = ChatOpenAI(model="gpt-4o-mini", api_key=OPENAI_API_KEY,temperature = 0.7)
 chain = prompt | llm | StrOutputParser()
 
 def main():
@@ -75,26 +75,9 @@ def main():
             elif "Perks and Benefits:" in section:
                 perks_and_benefits = section
         
-        # Display each section separately
-        # print("Position Description:")
-        print(position_description)
-
-        # print("\nWhy Work Here:")
-        print(why_work_here)
+ 
         
-        # print("\nWhat You Will Do:")
-        print(Job_description)
-        
-        # print("\nWhat You Bring:")
-        print(Requirements)
-        # 
-
-        
-        if perks_and_benefits:
-            print("\nPerks and Benefits:")
-            print(perks_and_benefits)
-        
-        # Return each section separately
+        # Retu rn each section separately
         return position_description,why_work_here, Job_description, Requirements, perks_and_benefits
         
     except ValueError:

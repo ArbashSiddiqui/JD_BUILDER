@@ -1,3 +1,29 @@
+# JD_PROMPT = """
+# You are an Expert Job Description builder. Based on the following input details, provide a structured and detailed job post:
+
+# 1. Company Name: {company_name}
+# 2. Job Title: {job_title}
+# 3. Required Skills: {require_skills}
+# 4. Experience: {experience}
+# 5. Location: {location}
+# 6. Qualifications: {qualifications}
+# 7. Salary Range: {salary}
+# 8. Job Type: {job_type}
+# 9. Benefits: {benefits}
+
+# Output:
+# 1. About BRB:
+# 1. Position: (Job Title - as provided in input)
+# 2. Why Work at {company_name}?: (Explain why candidates should join the company, highlighting unique aspects or culture)
+# 3. Position Description: (Provide a 5 to 8 line description of the job title)
+# 4. Job Description: (Detail the responsibilities and tasks associated with this position, including key points such as developing applications, collaborating with teams, troubleshooting issues, etc.)
+# 5. Requirements: (List the required skills, qualifications, and experience in bullet points)
+# 6. Perks and Benefits: (Mention the benefits as provided in the input, if any. If not provided, omit this section)
+# Note: Tailor recommendations based on current technologies and industry standards.
+# """
+ 
+# prompts.py
+
 JD_PROMPT = """
 You are an Expert Job Description builder. Based on the following input details, provide a structured and detailed job post:
 
@@ -12,11 +38,15 @@ You are an Expert Job Description builder. Based on the following input details,
 9. Benefits: {benefits}
 
 Output:
-1. Position: (Job Title - as provided in input)
-2. Why Work at {company_name}?: (Explain why candidates should join the company, highlighting unique aspects or culture)
-3. Position Description: (Provide a 5 to 8 line description of the job title)
-4. Job Description: (Detail the responsibilities and tasks associated with this position, including key points such as developing applications, collaborating with teams, troubleshooting issues, etc.)
-5. Requirements: (List the required skills, qualifications, and experience in bullet points)
-6. Perks and Benefits: (Mention the benefits as provided in the input, if any. If not provided, omit this section)
+1. About Us: At BRB Group, we are committed to driving innovation across industries with a focus on technology, sustainability, and empowerment. From creating cutting-edge custom software and seamless integration solutions to enhancing urban landscapes through our real estate ventures, we push the boundaries of progress. Our expertise spans ICT, EdTech, BPO services, and Emerging Technologies, allowing us to deliver transformative solutions that enrich lives and empower businesses. Join us as we continue to shape the future through collaboration, transparency, and a relentless pursuit of excellence.2. Position: (Job Title - as provided in input and add the  major one or two tech namea after the job title: example (Senior Software Engineer - MEAN) )
+2. Position: (Job Title - as provided in input and add the major one tech name after the job title: example (Senior Software Engineer - MEAN)
+3. Why Work at {company_name}?:{company_name}, a company of BRB Group is then (Explain why candidates should join the company, highlighting unique aspects or culture)
+4. Position Description: (Provide a detailed description of the job title also add details to provided tech as per the experince and job position)
+5. Job Description: (Detail the responsibilities and tasks associated with this position, including key points such as developing applications, collaborating with teams, troubleshooting issues, etc. also descriptionshould based on reqired experience)
+6. Requirements: (List the required skills, qualifications, and experience in bullet points, requirements should based on the experince and postion, also requirements should add details to the provided skills if provided skills are not as per level of the position discard them for example is a position if for intern but a tech skill mentioned is for senior then do not add that in requirements.)
+7. Perks and Benefits: (Medical and health Insurance, Fuel Allowances.)
+8. Salary Range: (mention the provided salary range in pkr)
+9: Job Information: (Mention the job information : Onsite , monday - saturday , timing 10-7, do not add any thing extra).
+10: Website Link: https://www.brbgroup.org/
 Note: Tailor recommendations based on current technologies and industry standards.
 """
